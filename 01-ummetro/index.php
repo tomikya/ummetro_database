@@ -54,13 +54,13 @@ if(!isset($_SESSION['user'])) {
             </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.php?page=siswa">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Data Siswa</span>
+						<a class="sidebar-link" href="index.php?page=akademik">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Akademik</span>
             </a>
 					</li>
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.php?page=spp">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Data SPP</span>
+						<a class="sidebar-link" href="index.php?page=informasi">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Informasi</span>
             </a>
 					</li>
 					<li class="sidebar-item">
@@ -190,7 +190,7 @@ if(!isset($_SESSION['user'])) {
 				<div class="container-fluid p-0">
 
                 <?php 
-                $page = isset($_GET['page']) ? $_GET['page'] : 'berita';
+                $page = isset($_GET['page']) ? $_GET['page'] : 'home';
                 include $page . '.php';
                 ?>
 
