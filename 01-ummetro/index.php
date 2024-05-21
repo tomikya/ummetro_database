@@ -190,7 +190,7 @@ if(!isset($_SESSION['user'])) {
 				<div class="container-fluid p-0">
 
                 <?php 
-                $page = isset($_GET['page']) ? $_GET['page'] : 'home';
+                $page = isset($_GET['page']) ? $_GET['page'] : 'berita';
                 include $page . '.php';
                 ?>
 

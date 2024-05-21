@@ -3,10 +3,15 @@ $id = $_GET['id'];
 if (isset($_POST['tanggal_berita'])) {
     $tnggl = $_POST['tanggal_berita'];
     $desk = $_POST['deskripsi_berita'];
+    $image = $_FILES['gambar_berita'];
 
-    $query = mysqli_query($konek, "UPDATE berita
-    SET tanggal_berita = '$tnggl', deskripsi_berita='$desk' 
-    WHERE id_berita=$id");
+    $query = mysqli_query($konek, "UPDATE berita SET tanggal_berita = '$tnggl', deskripsi_berita='$desk' WHERE id_berita=$id");
+
+    if($image['name'] != "") {
+        $nama_gambar = $image['name'];
+        move_uploaded_file($image['tmp_name'], 'image/'.$image['name']);
+        $query = mysqli_query($konek, "UPDATE berita SET gambar_berita='$nama_gambar' where id_berita=$id");
+    }
 
     if ($query) {
         echo '<script>alert("Ubah data berhasil !")</script>';
@@ -26,8 +31,18 @@ $data = mysqli_fetch_array($query);
             <div class="card-body">
                 <a href="?page=berita" class="btn btn-primary">Kembali</a>
                 <hr>
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <table class="table">
+                        <tr>
+                            <td width="100">Gambar Berita</td>
+                            <td width="1">:</td>
+                            <td>
+                                <a href="image/<?php echo $data['gambar_berita'];?>" target="_blank">
+                                <img src="image/<?php echo $data['gambar_berita'];?>" alt="gambar" width="200"></a><br>
+                                <input type="file" name="gambar_berita" id=""><br>
+                                <i class="text-danger">*Jika tidak diganti, Kosongkan sajaa!</i>
+                        </td>
+                        </tr>
                         <tr>
                             <td width="100">Tanggal Berita</td>
                             <td width="1">:</td>
