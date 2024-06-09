@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2024 at 11:12 AM
+-- Generation Time: Jun 09, 2024 at 06:34 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -71,6 +71,7 @@ CREATE TABLE `berita` (
   `id_berita` int(11) NOT NULL,
   `gambar_berita` varchar(255) DEFAULT NULL,
   `tanggal_berita` varchar(255) DEFAULT NULL,
+  `short_desk` text DEFAULT NULL,
   `deskripsi_berita` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -78,10 +79,32 @@ CREATE TABLE `berita` (
 -- Dumping data for table `berita`
 --
 
-INSERT INTO `berita` (`id_berita`, `gambar_berita`, `tanggal_berita`, `deskripsi_berita`) VALUES
-(27, 'Pameran Seni Rupa.jpg', '2024-05-19', 'poster seni budayaaaaaaaa'),
-(29, 'img2.jpg', '2024-05-19', 'Berita ini adalah hoaks'),
-(32, 'WhatsApp Image 2024-05-02 at 02.17.20.jpeg', '2024-02-08', 'Foto Resepsionis di SMK MUHAMMADIYAH 3 METRO');
+INSERT INTO `berita` (`id_berita`, `gambar_berita`, `tanggal_berita`, `short_desk`, `deskripsi_berita`) VALUES
+(35, 'kurt.jpg', '2024-06-09', 'kurt cobain seorang gitaris legenda dari band vundavar yang bunuh diri...', 'In May 2021, more than 27 years after the death of Nirvana frontman Kurt Cobain, the FBI released a 10-page file that included letters from fans urging the agency to investigate Cobain\'s death as a possible homicide. The FBI concluded, \"We are unable to identify any violation of federal law within the investigative jurisdiction of the FBI,\" adding that, \"Most homicide/death investigations generally fall within the jurisdiction of state and local authorities.\"  The Seattle Police Department, which ran the case, actually did re-examine the evidence in the music star\'s death investigation back in 2014. During this process, the department released a cache of never-before-seen photos from the 1994 death scene. According to police, this examination of the evidence confirmed Cobain\'s death was a suicide.  More images were also released in March of 2016, depicting the shotgun police say Cobain used to kill himself.  In this photo, Kurt Cobain\'s arm shows his medical bracelet from a drug rehab center in LA that he che');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `divisi`
+--
+
+CREATE TABLE `divisi` (
+  `id_divisi` int(11) NOT NULL,
+  `profile_divisi` varchar(255) DEFAULT NULL,
+  `nama` varchar(255) DEFAULT NULL,
+  `jabatan` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `divisi`
+--
+
+INSERT INTO `divisi` (`id_divisi`, `profile_divisi`, `nama`, `jabatan`) VALUES
+(6, 'kurt.jpg', 'Kurt Cobain', 'Gitaris'),
+(7, 'facebookk.png', 'facebook', 'CEO'),
+(8, 'linkedin.png', 'Linked', 'CEO'),
+(9, 'instagramm.png', 'instagram', 'CEO'),
+(10, 'aaa.jpg', 'umm', 'Ketua');
 
 -- --------------------------------------------------------
 
@@ -101,6 +124,25 @@ CREATE TABLE `informasi` (
 
 INSERT INTO `informasi` (`id_infor`, `gambar_infor`, `desk_infor`) VALUES
 (4, 'photobooth (1).png', 'aadadsadsadsa');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE `pages` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `content` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `title`, `content`) VALUES
+(1, 'manusia.php', 'halo');
 
 --
 -- Indexes for dumped tables
@@ -125,10 +167,22 @@ ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`);
 
 --
+-- Indexes for table `divisi`
+--
+ALTER TABLE `divisi`
+  ADD PRIMARY KEY (`id_divisi`);
+
+--
 -- Indexes for table `informasi`
 --
 ALTER TABLE `informasi`
   ADD PRIMARY KEY (`id_infor`);
+
+--
+-- Indexes for table `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -150,13 +204,25 @@ ALTER TABLE `akademik`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `divisi`
+--
+ALTER TABLE `divisi`
+  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `informasi`
 --
 ALTER TABLE `informasi`
   MODIFY `id_infor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
